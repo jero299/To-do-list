@@ -1,0 +1,13 @@
+:root{
+    --green: #42A08E;
+    --black: #272F31;
+    --light-brown: #E2D7C1;
+    --orange: #E3824D;
+    --brown: #544540; 
+}
+body {
+    background: linear-gradient(to bottom, var(--orange),var(--green));
+    height: 100vh;
+
+}
+ /*queda pendiente elegir una fuente de google */
