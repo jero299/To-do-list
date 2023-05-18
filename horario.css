@@ -1,3 +1,10 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
 :root{
     --green: #42A08E;
     --black: #272F31;
@@ -6,8 +13,59 @@
     --brown: #544540; 
 }
 body {
-    background: linear-gradient(to bottom, var(--orange),var(--green));
+    background: linear-gradient(to bottom, var(--green),var(--orange));
     height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
 
+    
 }
- /*queda pendiente elegir una fuente de google */
+
+.container {
+    width: 400px;
+    height: 600px;
+    margin:0 auto;
+     
+}
+
+ /*PERFIL*/
+
+ .perfil h1 {
+    color: var(--light-brown);
+ }
+
+ .perfil span {
+    color: var(--light-brown);
+    letter-spacing: 1px;
+ }
+
+ #fecha {
+    color: var(--black);
+    padding: 50px 0 5px 0;
+ }
+
+ /*AGREGAR TAREAS*/
+ .agregar-tarea {
+    background-color: var(--light-brown);
+    border-radius: 15px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 70px;
+
+
+ }
+ .agregar-tarea input {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--light-brown);
+
+ }
+ .agregar-tarea i {
+    font-size: 50px;
+    color: var(--orange);
+
+
+ }
