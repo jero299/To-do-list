@@ -69,3 +69,7 @@ body {
 
 
  }
+
+ .agregar-tarea i:hover {
+   transform: scale(1.1);
+ }
