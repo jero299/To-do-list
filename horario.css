@@ -52,7 +52,7 @@ body {
     align-items: center;
     padding: 10px;
     gap: 70px;
-
+    margin: 40px 0px;
 
  }
  .agregar-tarea input {
@@ -61,15 +61,50 @@ body {
     border-radius: 8px;
     border: none;
     background-color: var(--light-brown);
-
  }
  .agregar-tarea i {
     font-size: 50px;
-    color: var(--orange);
-
-
+    color: var(--green);
+ }
+ .agregar-tarea i:hover {
+   transform: scale(1.2);
+   transition: transform 0.3s ease-out
+ }
+ .agregar-tarea i:not(:hover){
+   transition: transform 0.3s ease-out;
+ }
+ .agregar-tarea input::placeholder {
+   font-size: 1.2rem;
+   color: var(--green);
  }
 
- .agregar-tarea i:hover {
-   transform: scale(1.1);
+ /* SECCION TAREA*/
+
+ .seccion-tarea  h3{
+   color: var(--light-brown);
+   margin-bottom: 20px;
+ }
+ .seccion-tarea li {
+   display: flex;
+   background:var(--light-brown);
+   border-radius: 15px;
+   padding: 10px;
+   align-items: center;
+   justify-content: space-between;
+   margin: 5px 0px;
+   color: var(--black);
+ }
+ .seccion-tarea i {
+   font-size: 25px;
+ }
+ .seccion-tarea i:hover {
+   color: var(--green);
+   cursor: pointer;
+ }
+ .seccion-tarea >ul p {
+   font-size: 1.2rem;
+ }
+ .line-through {
+   text-decoration: line-through;
+   color: var(--black);
  }
