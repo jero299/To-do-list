@@ -106,5 +106,5 @@ body {
  }
  .line-through {
    text-decoration: line-through;
-   color: var(--black);
+   color: var(--green);
  }
