@@ -5,7 +5,15 @@ const botonEnter = document.querySelector('#boton-enter');
 const check = 'fa-check-circle'
 const uncheck = 'fa-circle'
 const lineThrough = 'line-through'
-let id = 0
+let id 
+let LIST
+
+
+
+//funcion para mostrar la fecha del equipo//
+const FECHA = new Date()
+fecha.innerHTML= FECHA.toLocaleDateString('es-MX',{weekday:'long',month:'long',day:'numeric'})
+
 
 //funcion para agregar el formato de tareas//
 function agregarTarea (tarea,id,realizado,eliminado) {
@@ -31,11 +39,14 @@ function tareaRealizada(element){
     element.classList.toggle(check)
     element.classList.toggle(uncheck)
     element.parentNode.querySelector('.text').classList.toggle(lineThrough)
+    LIST[element.id].realizado = LIST[element.id].realizado ?false : true
+    
 }
 
 //funcion para eliminar tareas//
 function tareaEliminada(element) {
     element.parentNode.parentNode.removeChild(element.parentNode)
+    LIST[element.id].eliminado = true
 }
 
 
@@ -44,10 +55,18 @@ botonEnter.addEventListener('click',()=> {
     const tarea = input.value
     if(tarea) {
         agregarTarea(tarea,id,false,false)
+        LIST.push({
+            nombre: tarea,
+            id: id,
+            realizado: false,
+            eliminado: false
+
+        })
     }
+    localStorage.setItem('TODO',JSON.stringify(LIST)) 
     input.value = ''
     id++
-
+    
 })
 
 
@@ -57,12 +76,21 @@ document.addEventListener('keyup', function(event){
         const tarea = input.value
         if(tarea) {
             agregarTarea(tarea,id,false,false)
+            LIST.push({
+                nombre: tarea,
+                id: id,
+                realizado: false,
+                eliminado: false
+    
+            })
     }
+        localStorage.setItem('TODO',JSON.stringify(LIST)) 
         input.value = ''
         id++
+        
 }
 })
-//para agregar eventos de click//
+//para agregar eventos de click en realizado y eliminado//
 lista.addEventListener('click',function(event) {
     const element = event.target
     const elementData = element.attributes.data.value
@@ -72,5 +100,22 @@ lista.addEventListener('click',function(event) {
     else if (elementData==='eliminado') {
         tareaEliminada(element)
     }
-
+    localStorage.setItem('TODO',JSON.stringify(LIST)) 
 })
+
+//get item//
+let data = localStorage.getItem('TODO')
+if(data){
+    LIST = JSON.parse(data)
+    id = LIST.length
+    cargarLista(LIST)
+}else {
+    LIST = []
+    id = 0 
+}
+function cargarLista(array){
+    array.forEach(function(i){
+        agregarTarea(i.nombre,i.id,i.realizado,i.eliminado)
+
+    })
+}
